@@ -11,6 +11,7 @@ export default function Nav(){
            <ul className="nav-links">
               <Link to="/">Puntos Verdes</Link>
               <Link to="/informacion">Más Información</Link>
+              <Link to="/login">Login</Link>
            </ul>
         </div>
         <Outlet />
