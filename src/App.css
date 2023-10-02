@@ -1,0 +1,181 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: left;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.comentario-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 1rem;
+  transition: transform 0.2s ease-in-out;
+  width: 300px;
+}
+
+.comentario-card:hover {
+  transform: translateY(-4px);
+}
+
+.comentario-content {
+  margin: 1rem;
+}
+
+.comentario-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.comentario-username {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.comentario-rating {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.comentario-text {
+  margin-bottom: 12px;
+}
+
+.comentario-date {
+  font-weight: 500;
+}
+
+.comentario-time {
+  font-weight: 500;
+}
+
+.eliminar-button {
+  background-color: red;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.eliminar-button:hover {
+  background-color: darkred;
+}
+
+
+.rating-stars {
+  display: flex;
+}
+
+.star-icon {
+  color: gold;
+  font-size: 30px;
+  margin-right: 2px;
+}
+
+
+
+
+
+
+
+/* Estilos para el formulario */
+.form-container {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  width: 800px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilos para etiquetas */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Estilos para campos de entrada */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilos para el botón */
+button.button-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button.button-primary:hover {
+  background-color: #0056b3;
+}

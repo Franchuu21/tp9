@@ -1,0 +1,44 @@
+.App .navbar {
+  width: 100%;
+  min-height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  background: rgb(58, 163, 102);
+}
+
+.App .navbar .nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  font-weight: bold;
+}
+
+.App .navbar .nav-links>a{
+  color: #fff;
+  text-decoration: none;
+}
+.eliminar{
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+.titlePV{
+  font-size: 20; 
+  font-weight: 600;
+  color: #fff;
+}
+
+.contentPV{
+  border: "2px solid green";
+  background-color: rgb(58, 163, 102);
+  border-radius: "2px";
+  margin-top: "1rem";
+  margin-bottom: "1rem";
+  color: "white";
+  opacity: "70%";
+}
