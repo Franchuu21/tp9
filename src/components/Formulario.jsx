@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { UsuarioContext } from '../context/UsuarioContext';
 import '../App.css';
 
@@ -8,12 +8,19 @@ const MyForm = ({ comments, setComentarios }) => {
     const [selectedPuntoVerde, setSelectedPuntoVerde] = useState(""); // Estado para almacenar el punto verde seleccionado
     const { usuario } = useContext(UsuarioContext);
 
-    const isUsuarioEmpty = usuario != "" || usuario != null; // Verifica si el usuario está vacío
+    const [nombreUsuario, setNombreUsuario] = useState(""); // Estado para el nombre de usuario
+
+    useEffect(() => {
+        if (usuario && usuario.nombre) {
+            setNombreUsuario(usuario.nombre);
+            document.getElementById("nombreUsuario").disabled = true
+        }
+    }, [usuario]);
 
     const updateComentario = () => {
         const nuevoComentario = {
             puntoVerde: selectedPuntoVerde,
-            nombreUsuario: document.getElementById("nombreUsuario").value,
+            nombreUsuario: nombreUsuario, // Utiliza el valor del estado nombreUsuario
             calificacion: document.getElementById("calificacion").value,
             comentario: document.getElementById("comentario").value,
             fecha: document.getElementById("fecha").value,
@@ -49,7 +56,8 @@ const MyForm = ({ comments, setComentarios }) => {
                     className="u-full-width"
                     placeholder="Ingresa tu nombre de usuario"
                     id="nombreUsuario"
-                    readOnly={isUsuarioEmpty} // Establece readOnly en función del contexto de usuario
+                    value={nombreUsuario} // Establece el valor del campo nombreUsuario
+                    onChange={(e) => setNombreUsuario(e.target.value)} // Maneja cambios en el campo nombreUsuario
                 />
 
                 <label htmlFor="calificacion">Calificación:</label>
@@ -90,6 +98,7 @@ const MyForm = ({ comments, setComentarios }) => {
                 <button
                     type="button"
                     className="u-full-width button-primary"
+                    id="comentarioButton"
                     onClick={updateComentario}
                 >
                     Aceptar

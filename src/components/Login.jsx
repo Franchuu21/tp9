@@ -32,7 +32,7 @@ const LoginForm = () => {
     listUsername.forEach((element) => {
       if (username === element.nombre && password === element.contraseña) {
         setUsuario(element)
-        console.log(usuario)
+        console.log(element)
         isLoggedIn = true
         return
       }
