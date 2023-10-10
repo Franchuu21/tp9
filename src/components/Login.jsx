@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UsuarioContext } from '../context/UsuarioContext';
 import usuarios from '../MockData/MockData.json'
+import './Login.css'
 
 
 const LoginForm = () => {
@@ -14,6 +15,9 @@ const LoginForm = () => {
 
   useEffect(() => async() => {
     const data = usuarios.usuarios
+    if(usuario.nombre){
+      setLoggedIn(true)
+    }
     console.log(data)
     setListUsername(data)
 }, [])
@@ -25,6 +29,13 @@ const LoginForm = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleLogout = () =>{
+    setUsuario()
+    setPassword()
+    setUsername()
+    setLoggedIn(false)
+  }
 
   const handleLogin = () => {
     console.log(listUsername[3])
@@ -43,20 +54,19 @@ const LoginForm = () => {
   
 
   return (
-    <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src='/img/logo.png' />
+    <Card className="centered-content">
         <Card.Body className='input-container'>
         {loggedIn ? (
           <div>
             <h2>Bienvenido, {username}!</h2>
             <Button style={{marginTop:'10px', marginBottom: '10px', marginRight:'10px'}}><Link to={'/'} className='link'>Continuar</Link></Button>
-            <button onClick={() => setLoggedIn(false)}>Cerrar sesión</button>
+            <button onClick={() => handleLogout()}>Cerrar sesión</button>
           </div>
         ) : (
           <div>
             <h2>Iniciar sesión</h2>
             <div className="form-group">
-              <label>Nombre de usuario:</label>
+              <label>Nombre de usuario</label>
               <input
                 type="text"
                 value={username}
@@ -65,7 +75,7 @@ const LoginForm = () => {
               />
             </div>
             <div className="form-group">
-              <label>Contraseña:</label>
+              <label>Contraseña</label>
               <input
                 type="password"
                 value={password}

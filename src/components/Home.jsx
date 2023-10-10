@@ -3,7 +3,17 @@ import Listado from './Listado';
 import MyForm from './Formulario';
 
 const Home = () => {
-    const [comments, setComentarios] = React.useState([])
+    const [comments, setComentarios] = React.useState(() => {
+        // Obtén los comentarios almacenados en el localStorage al cargar el componente
+        const storedComments = localStorage.getItem("comments");
+        return storedComments ? JSON.parse(storedComments) : [];
+    });
+
+    React.useEffect(() => {
+        // Actualiza el localStorage cada vez que cambian los comentarios
+        localStorage.setItem("comments", JSON.stringify(comments));
+    }, [comments]);
+
     return (
     <div>
         <h1>Puntos Verdes</h1>

@@ -27,7 +27,12 @@ const MyForm = ({ comments, setComentarios }) => {
             hora: document.getElementById("hora").value,
         };
 
-        setComentarios([...comments, nuevoComentario]);
+          // Actualiza el estado local con el nuevo comentario
+          const newComments = [...comments, nuevoComentario];
+          setComentarios(newComments);
+  
+          // Guarda los comentarios en el localStorage
+          localStorage.setItem("comments", JSON.stringify(newComments));
     };
 
     return (

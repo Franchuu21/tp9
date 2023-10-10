@@ -1,0 +1,6 @@
+.comment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Define 3 columnas */
+    gap: 20px; /* Espacio entre columnas */
+}
+
